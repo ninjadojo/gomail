@@ -58,7 +58,7 @@ func NewPlainDialer(host string, port int, username, password string) *Dialer {
 // Dial dials and authenticates to an SMTP server. The returned SendCloser
 // should be closed when done using it.
 func (d *Dialer) Dial() (SendCloser, error) {
-	conn, err := netDialTimeout("tcp", addr(d.Host, d.Port), 10*time.Second)
+	conn, err := netDialTimeout("tcp", addr(d.Host, d.Port), 30*time.Second)
 	if err != nil {
 		return nil, err
 	}
